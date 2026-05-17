@@ -25,6 +25,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Aether AI - Premium AI SaaS",
   description: "Transform Your Workflow with AI Automation",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

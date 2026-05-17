@@ -26,8 +26,28 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-container-max mx-auto px-gutter h-full flex justify-between items-center">
-        <Link href="/" className="font-display text-2xl font-bold text-gradient">
-          Aether AI
+        {/* Logo with custom Celestial SVG */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" className="w-8 h-8 transition-transform duration-500 group-hover:rotate-[30deg]">
+            <path d="M16 6L25 11V21L16 26L7 21V11L16 6Z" stroke="url(#navLogoStrokeGrad)" strokeWidth="2" strokeLinejoin="round" />
+            <path d="M16 6V26" stroke="url(#navLogoStrokeGrad)" strokeWidth="1.5" strokeOpacity="0.5" />
+            <path d="M7 11L25 21" stroke="url(#navLogoStrokeGrad)" strokeWidth="1.5" strokeOpacity="0.5" />
+            <path d="M25 11L7 21" stroke="url(#navLogoStrokeGrad)" strokeWidth="1.5" strokeOpacity="0.5" />
+            <circle cx="16" cy="16" r="4" fill="url(#navLogoCoreGrad)" stroke="#0e1323" strokeWidth="1.5" />
+            <defs>
+              <linearGradient id="navLogoStrokeGrad" x1="7" y1="6" x2="25" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#c4c0ff" />
+                <stop offset="1" stopColor="#8fd8ff" />
+              </linearGradient>
+              <linearGradient id="navLogoCoreGrad" x1="12" y1="12" x2="20" y2="20" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#8fd8ff" />
+                <stop offset="1" stopColor="#c4c0ff" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span className="font-display text-2xl font-bold text-gradient">
+            Aether AI
+          </span>
         </Link>
 
         {/* Desktop Nav */}
