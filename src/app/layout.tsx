@@ -42,6 +42,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} ${inter.variable} h-full antialiased dark`}
     >
+      <head>
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any" />
+        <link rel="shortcut icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icon.svg" />
+      </head>
       <body className="min-h-full flex flex-col font-body bg-surface text-on-surface">{children}</body>
     </html>
   );
