@@ -1,26 +1,213 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Colors */
+  --color-surface: #0e1323;
+  --color-surface-dim: #0e1323;
+  --color-surface-bright: #34394a;
+  --color-surface-container-lowest: #080d1d;
+  --color-surface-container-low: #161b2b;
+  --color-surface-container: #1a1f30;
+  --color-surface-container-high: #25293a;
+  --color-surface-container-highest: #2f3446;
+  
+  --color-on-surface: #dee1f9;
+  --color-on-surface-variant: #c7c4d8;
+  
+  --color-primary: #c4c0ff;
+  --color-on-primary: #2000a4;
+  --color-primary-container: #8781ff;
+  --color-on-primary-container: #1b0091;
+  
+  --color-secondary: #8fd8ff;
+  --color-on-secondary: #003548;
+  --color-secondary-container: #00c1fd;
+  --color-on-secondary-container: #004b65;
+  
+  --color-tertiary: #dcb8ff;
+  --color-on-tertiary: #480082;
+  --color-tertiary-container: #b46eff;
+  --color-on-tertiary-container: #3f0072;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-background: #0e1323;
+  --color-on-background: #dee1f9;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Spacing */
+  --spacing-container-max: 1280px;
+  --spacing-gutter: 24px;
+  --spacing-section-gap: 160px;
+  --spacing-stack-sm: 8px;
+  --spacing-stack-md: 16px;
+  --spacing-stack-lg: 32px;
+
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  
+  /* Fonts */
+  --font-display: var(--font-plus-jakarta-sans);
+  --font-body: var(--font-inter);
+  --font-code: var(--font-geist-mono);
+
+  /* Animation */
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(0.95); }
   }
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+}
+
+:root {
+  --background: #0e1323;
+  --foreground: #dee1f9;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* navbar height compensation */
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
 }
+
+/* Glassmorphism Utilities */
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Interactive 3D Card with 3-Shadow Stack */
+  .glass-card-3d {
+    background: rgba(14, 19, 35, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.14); /* 3D bottom bevel */
+    border-right: 1.5px solid rgba(255, 255, 255, 0.09); /* 3D side bevel */
+    border-radius: 1.25rem;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    
+    /* 3-Shadow System (Proximity, Ambient, Color Backlight) */
+    box-shadow: 
+      0 4px 10px rgba(0, 0, 0, 0.3),                 /* Shadow 1: Proximity */
+      0 20px 40px -5px rgba(0, 0, 0, 0.5),           /* Shadow 2: Ambient */
+      0 12px 24px -8px rgba(196, 192, 255, 0.08),    /* Shadow 3: Colored Glow */
+      inset 0 1px 1px rgba(255, 255, 255, 0.08);
+    
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+    transition: 
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      background 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card-interactive {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* PREMIUM DESKTOP-ONLY HOVER INTERACTIONS */
+  @media (min-width: 1024px) {
+    .glass-card-3d:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(196, 192, 255, 0.3);
+      border-bottom-color: rgba(196, 192, 255, 0.55);
+      border-right-color: rgba(196, 192, 255, 0.4);
+      
+      /* Elegant 3D Lift and Rotation */
+      transform: perspective(1000px) rotateX(5deg) rotateY(-2.5deg) translateZ(20px) translateY(-8px);
+    }
+
+    /* Distinct Color Shadows for the 3-Shadow Stack on Hover */
+    .shadow-3d-primary:hover {
+      box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.45),               
+        0 35px 70px -10px rgba(0, 0, 0, 0.65),         
+        0 25px 50px -5px rgba(196, 192, 255, 0.25),    /* Violet Glow */
+        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.15);
+    }
+
+    .shadow-3d-secondary:hover {
+      box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.45),               
+        0 35px 70px -10px rgba(0, 0, 0, 0.65),         
+        0 25px 50px -5px rgba(143, 216, 255, 0.25),    /* Cyan Glow */
+        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.15);
+    }
+
+    .shadow-3d-tertiary:hover {
+      box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.45),               
+        0 35px 70px -10px rgba(0, 0, 0, 0.65),         
+        0 25px 50px -5px rgba(220, 184, 255, 0.25),    /* Pink Glow */
+        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.15);
+    }
+
+    .glass-card-interactive:hover {
+      border-color: rgba(196, 192, 255, 0.4);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 30px rgba(196, 192, 255, 0.15);
+      background: rgba(255, 255, 255, 0.09);
+      transform: translateY(-4px);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 
+        0 8px 20px rgba(196, 192, 255, 0.35),
+        0 4px 12px rgba(143, 216, 255, 0.2);
+      transform: translateY(-2px) scale(1.02);
+    }
+  }
+
+  /* NATIVE MOBILE-ONLY SNAPPY ACTIVE TOUCH FEEDBACK (Feels like iOS/Android App) */
+  @media (max-width: 1023px) {
+    .btn-primary:active,
+    .glass-card-interactive:active,
+    .glass-card-3d:active {
+      transform: scale(0.96) !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .btn-primary:active {
+      background: linear-gradient(135deg, #b2aeff 0%, #7dc9ff 100%) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    }
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #c4c0ff 0%, #8fd8ff 100%);
+    color: #001e2b;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #c4c0ff, #8fd8ff);
+  }
+
+  .ambient-glow {
+    box-shadow: 0 0 80px 0 rgba(196, 192, 255, 0.05);
+  }
+}
+
