@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" fill="none">
+  <!-- Custom Card Background -->
+  <rect width="600" height="200" rx="16" fill="#04060f" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
+  
+  <!-- Subtle Glowing background mesh lights -->
+  <circle cx="150" cy="100" r="100" fill="rgba(196, 192, 255, 0.05)" filter="blur(60px)" />
+  <circle cx="450" cy="100" r="100" fill="rgba(143, 216, 255, 0.05)" filter="blur(60px)" />
+
+  <!-- 1. Next.js Tech Grid Block -->
+  <g transform="translate(40, 40)">
+    <rect width="100" height="120" rx="12" fill="rgba(14, 19, 35, 0.5)" stroke="rgba(255,255,255,0.06)" strokeWidth="1.5" />
+    <!-- Next.js Sleek N Logo -->
+    <circle cx="50" cy="45" r="22" fill="#000" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+    <path d="M42 57 L52 35 H56 L46 57 Z" fill="#fff" />
+    <path d="M56 35 L47 55" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
+    <text x="50" y="95" fill="rgba(255,255,255,0.85)" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Next.js 16</text>
+  </g>
+
+  <!-- 2. React 19 Tech Grid Block -->
+  <g transform="translate(175, 40)">
+    <rect width="100" height="120" rx="12" fill="rgba(14, 19, 35, 0.5)" stroke="rgba(255,255,255,0.06)" strokeWidth="1.5" />
+    <!-- React Atom Icon -->
+    <circle cx="50" cy="45" r="22" fill="#20232a" stroke="rgba(97, 218, 251, 0.15)" strokeWidth="1" />
+    <ellipse cx="50" cy="45" rx="16" ry="6" stroke="#61dafb" strokeWidth="1.5" fill="none" transform="rotate(30 50 45)" />
+    <ellipse cx="50" cy="45" rx="16" ry="6" stroke="#61dafb" strokeWidth="1.5" fill="none" transform="rotate(90 50 45)" />
+    <ellipse cx="50" cy="45" rx="16" ry="6" stroke="#61dafb" strokeWidth="1.5" fill="none" transform="rotate(150 50 45)" />
+    <circle cx="50" cy="45" r="3.5" fill="#61dafb" />
+    <text x="50" y="95" fill="rgba(255,255,255,0.85)" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">React 19</text>
+  </g>
+
+  <!-- 3. Tailwind CSS Tech Grid Block -->
+  <g transform="translate(310, 40)">
+    <rect width="100" height="120" rx="12" fill="rgba(14, 19, 35, 0.5)" stroke="rgba(255,255,255,0.06)" strokeWidth="1.5" />
+    <!-- Tailwind Wave Icon -->
+    <circle cx="50" cy="45" r="22" fill="#0f172a" stroke="rgba(6, 182, 212, 0.15)" strokeWidth="1" />
+    <path d="M40 45 C40 40, 46 37, 50 37 C55 37, 57 41, 57 45 C57 49, 54 52, 50 52 C45 52, 40 49, 40 45 Z" fill="#06b6d4" opacity="0.6" />
+    <path d="M43 47 C43 43, 49 40, 53 40 C58 40, 60 44, 60 48 C60 52, 57 55, 53 55 C48 55, 43 52, 43 47 Z" fill="#38bdf8" />
+    <text x="50" y="95" fill="rgba(255,255,255,0.85)" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Tailwind 4</text>
+  </g>
+
+  <!-- 4. GSAP Animation Tech Grid Block -->
+  <g transform="translate(445, 40)">
+    <rect width="100" height="120" rx="12" fill="rgba(14, 19, 35, 0.5)" stroke="rgba(255,255,255,0.06)" strokeWidth="1.5" />
+    <!-- GSAP Custom bolt/socket icon -->
+    <circle cx="50" cy="45" r="22" fill="#111" stroke="rgba(136, 206, 2, 0.15)" strokeWidth="1" />
+    <path d="M48 33 L38 47 H48 L46 57 L58 43 H48 L50 33 Z" fill="#88ce02" stroke="#88ce02" strokeWidth="1" />
+    <text x="50" y="95" fill="rgba(255,255,255,0.85)" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">GSAP 3</text>
+  </g>
+</svg>

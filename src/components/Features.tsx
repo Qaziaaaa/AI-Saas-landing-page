@@ -121,7 +121,7 @@ const Features = () => {
             <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-white/[0.01] to-white/[0.04] pointer-events-none"></div>
             
             <div className={`w-14 h-14 rounded-xl bg-${feature.color}/10 flex items-center justify-center transition-all group-hover:scale-110 group-hover:bg-${feature.color}/20 duration-300 shadow-inner relative z-10`} style={{ transform: "translateZ(20px)" }}>
-              {React.cloneElement(feature.icon as React.ReactElement, { size: 28 })}
+              {React.cloneElement(feature.icon as React.ReactElement<{ size?: number }>, { size: 28 })}
             </div>
             
             <div className="flex flex-col gap-3 relative z-10" style={{ transform: "translateZ(10px)" }}>

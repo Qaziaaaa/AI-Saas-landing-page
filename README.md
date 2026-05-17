@@ -9,6 +9,8 @@
 /__/     /__/______/ \________/|__/  /__/ \_______/ \__/  \__\  \________/ |______/ 
 ```
 
+![Aether AI Tech Stack Matrix](public/tech-stack.svg)
+
 Aether AI is an ultra-premium, production-grade Next.js 16 SaaS landing page designed with custom **Celestial Modernism** aesthetics. Engineered with performance-first architectures, this page features tactile three-dimensional layout cards, custom triple-layered ambient shadow stacks, high-performance GreenSock (GSAP) MatchMedia staggers, and a snappy native app-like mobile UX.
 
 ---
